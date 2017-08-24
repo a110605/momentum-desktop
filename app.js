@@ -30,7 +30,7 @@ function start() {
   var key = `momentum-background-${getTodayDate()}`;
   var value = 'value';
   var selectQuery = `SELECT ${value} FROM ${table} where key="${key}"`;
-  var imageName = `image-${getRandomInt(0, 9999999)}.jpeg`;
+  var imageName = `images/image-${getTodayDate()}.jpeg`;
   return localStorage.allAsync(selectQuery)
     .then(res => {
       var backgroundInfo = res[0].value.toString('utf16le');
@@ -50,8 +50,9 @@ function start() {
       return wallpaper.set(imageName);
     })
     .then(() => {
-      console.log('Desktop background changed!');
-      return rimraf(imageName);
+      console.log('Successfully download background image.');
+      console.log('Desktop background has changed!');
+ //     return rimraf(imageName);
     });
 }
 
