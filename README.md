@@ -37,7 +37,7 @@ Then, run:
 ```
 $ forever start app.js
 ```
-This will download and change your desktop wallpaper, as well as schedule `momentum-desktop` to automatically change your wallpaper at every morning (0:00). If your computer is sleeping at that time, the program will run the next time your computer is booted up.
+This will download and change your desktop wallpaper, as well as schedule `momentum-desktop` to automatically change your wallpaper at every morning (10:00). If your computer is sleeping at that time, the program will run the next time your computer is booted up.
 
 To stop the app.js, first find the pid by using `$ forever list`, then run:
 ```
