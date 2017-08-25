@@ -1,3 +1,4 @@
+#!/usr/local/bin/node
 'use strict';
 
 var fs = require('fs.promised');
@@ -80,8 +81,8 @@ function getTodayDate() {
 if (process.env.NODE_ENV === 'test') {
   start();
 } else {
+  //start();
+  schedule.scheduleJob({hour: 10, minute: 00}, () => {
   start();
-  schedule.scheduleJob({hour: 0, minute: 0}, () => {
-    start();
   });
 }
