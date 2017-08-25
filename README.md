@@ -5,6 +5,10 @@ It also download the wallpaper into /momentum-desktop/images
 
 Compatible with Windows, macOS, and Linux.
 
+![image](https://github.com/a110605/momentum-desktop/blob/master/screenshot/2.png)
+
+![image](https://github.com/a110605/momentum-desktop/blob/master/screenshot/1.png)
+
 ## Prerequisite
 Install the free `Momentum` chrome extension from the [chrome web store](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca?hl=en).
 
