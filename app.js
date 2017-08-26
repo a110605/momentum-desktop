@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === 'test') {
   start();
 } else {
   //start();
-  schedule.scheduleJob({hour: 10, minute: 00}, () => {
+  schedule.scheduleJob({hour: 10, minute: 1}, () => {
   start();
   });
 }
