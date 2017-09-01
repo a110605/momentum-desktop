@@ -51,17 +51,9 @@ function start() {
       return wallpaper.set(imageName);
     })
     .then(() => {
-      console.log('Successfully download background image.');
+      console.log('Successfully download background image to ' + process.cwd() +'/'+ `${imageName}`);
       console.log('Desktop background has changed!');
- //     return rimraf(imageName);
     });
-}
-
-/**
- * Generate random integer to use as part of the background image name
- */
-function getRandomInt(min, max) {
-  return Math.round(Math.random() * (max - min) + min);
 }
 
 /**
@@ -74,15 +66,8 @@ function getTodayDate() {
   var month = d.getMonth() + 1;
   month = month < 10 ? `0${month}` : month;
   var date = d.getDate();
+  date = date < 10 ? `0${date}` : date;
   return `${year}-${month}-${date}`;
 }
 
-
-if (process.env.NODE_ENV === 'test') {
-  start();
-} else {
-  //start();
-  schedule.scheduleJob({hour: 10, minute: 1}, () => {
-  start();
-  });
-}
+start();
