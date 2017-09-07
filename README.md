@@ -1,7 +1,7 @@
 # Momentum-Desktop
 Tool for setting the momentum chrome extension background as the wallpaper for your desktop.
 
-It also download the wallpaper into /momentum-desktop/images
+It also download the wallpaper into /path/to/momentum-desktop/images
 
 Compatible with Windows, macOS, and Linux.
 
@@ -14,7 +14,7 @@ Install the free `Momentum` chrome extension from the [chrome web store](https:/
 
 Setup nodejs ruuning environment (on MacOS X)
 ```
-$ [sudo] brew install node
+$ brew install node
 ```
 
 ### Quick Start
@@ -28,7 +28,7 @@ $ npm install
 ### Running it once
 Simply run:
 ```
-$ [sudo] npm start
+$ npm start
 ```
 This will download current momentum background image and change to your desktop wallpaper.
 
