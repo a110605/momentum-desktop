@@ -32,18 +32,3 @@ $ [sudo] npm start
 ```
 This will download current momentum background image and change to your desktop wallpaper.
 
-### Running it automatically daily
-First install the [forever](https://github.com/foreverjs/forever) CLI tool:
-```
-$ [sudo] npm install forever -g
-```
-Then, run:
-```
-$ forever start app.js
-```
-This will download and change your desktop wallpaper, as well as schedule `momentum-desktop` to automatically change your wallpaper at every morning (10:00). If your computer is sleeping at that time, the program will run the next time your computer is booted up.
-
-To stop the app.js, first find the pid by using `$ forever list`, then run:
-```
-$ forever stop [pid]
-```
