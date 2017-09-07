@@ -1,6 +1,7 @@
 #!/usr/local/bin/node
 'use strict';
 
+var sleep = require('system-sleep');
 var fs = require('fs.promised');
 var os = require('os');
 var rp = require('request-promise');
@@ -8,7 +9,6 @@ var Promise = require('bluebird');
 var rimraf = Promise.promisify(require('rimraf'));
 var sqlite3 = Promise.promisifyAll(require('sqlite3').verbose());
 var wallpaper = require('wallpaper');
-var schedule = require('node-schedule');
 
 // Get the correct Momentum image based on the os platform
 var platform = os.platform();
@@ -32,26 +32,31 @@ function start() {
   var value = 'value';
   var selectQuery = `SELECT ${value} FROM ${table} where key="${key}"`;
   var imageName = `images/image-${getTodayDate()}.jpeg`;
-  return localStorage.allAsync(selectQuery)
+  console.log("Query momentum sqlite database.");
+ 
+ return localStorage.allAsync(selectQuery)
     .then(res => {
       var backgroundInfo = res[0].value.toString('utf16le');
       var background = JSON.parse(backgroundInfo);
       return background.filename;
     })
     .then(filename => {
+      console.log("Downloading image from momentum database, Please wait...");
       return rp({
         uri: filename,
         encoding: 'binary'
       });
     })
     .then(image => {
+      console.log('Write image file to ' + process.cwd() +'/'+ `${imageName}`);
       return fs.writeFile(imageName, image, 'binary');
     })
     .then(() => {
+      sleep(2000);
+      console.log("\nSetup wallpaper.");
       return wallpaper.set(imageName);
     })
     .then(() => {
-      console.log('Successfully download background image to ' + process.cwd() +'/'+ `${imageName}`);
       console.log('Desktop background has changed!');
     });
 }
@@ -70,4 +75,5 @@ function getTodayDate() {
   return `${year}-${month}-${date}`;
 }
 
+//main function
 start();
