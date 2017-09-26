@@ -3,6 +3,8 @@ Tool for setting the momentum chrome extension background as the wallpaper for y
 
 It also download the wallpaper into /path/to/momentum-desktop/images
 
+I share some wallpapers downloaded previous [here](https://www.dropbox.com/sh/tnwtnpm3nzql8ez/AADeun-O-l38SEzwSircKWnaa?dl=0) 
+
 Compatible with Windows, macOS, and Linux.
 
 ![image](https://github.com/a110605/momentum-desktop/blob/master/screenshot/2.png)
